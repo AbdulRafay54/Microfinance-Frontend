@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animation Keyframes */
+@keyframes navbarSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Apply Animation */
+.navbar {
+  animation: navbarSlideDown 0.8s ease-in-out; /* Adjust duration and easing as needed */
+}
+
+/* Optional hover effect for links */
+.navbar ul li:hover {
+  animation: linkBounce 0.5s ease-in-out;
+}
+
+@keyframes linkBounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Text Slide-In Animation */
+@keyframes textSlideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Image Slide-In Animation */
+@keyframes imageSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply Animation */
+.text-section {
+  animation: textSlideIn 1s ease-out;
+}
+
+.image-section {
+  animation: imageSlideIn 1s ease-out;
+}
+
+
+.customScrol::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.customScrol::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.customScrol::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
