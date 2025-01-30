@@ -7,22 +7,25 @@ const Services = () => {
     <>
       <section id="services" className="text-gray-600 body-font">
         <div className="container px-5 py-16 mx-auto">
-          <div className="flex flex-wrap w-full mb-20">
+          {/* Heading Section */}
+          <div className="flex flex-wrap w-full mb-20 mt-32">
             <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
               <h1 className="sm:text-3xl text-2xl title-font mb-2 text-gray-900 font-mono font-bold">
-                Loan Options for Every Need
+                Microfinance Services for Your Needs
               </h1>
               <div className="h-1 w-20 bg-customGreen rounded" />
             </div>
             <p className="lg:w-1/2 w-full leading-relaxed text-black">
-              Choose from a variety of loan options tailored to your specific
-              needs. Whether it's for a wedding, home construction, business
-              startup, or education, we have flexible terms to suit your budget.
+              We offer tailored microfinance solutions to help you achieve your
+              financial goals. From weddings to business startups, we provide
+              flexible loans to suit your needs.
             </p>
           </div>
+
+          {/* Loan Cards */}
           <div className="flex flex-wrap -m-4">
             {/* Wedding Loan Card */}
-            <div className="xl:w-1/4 md:w-1/2 p-4 hover:scale-105 duration-[1000ms]">
+            <div className="xl:w-1/4 md:w-1/2 p-4 hover:scale-105 duration-300">
               <Link to={"/loan-form"}>
                 <div className="bg-gray-100 p-6 rounded-lg">
                   <img
@@ -42,13 +45,14 @@ const Services = () => {
                 </div>
               </Link>
             </div>
+
             {/* Home Construction Loan Card */}
-            <div className="xl:w-1/4 md:w-1/2 p-4 hover:scale-105 duration-[1000ms]">
+            <div className="xl:w-1/4 md:w-1/2 p-4 hover:scale-105 duration-300">
               <Link to={"/loan-form"}>
                 <div className="bg-gray-100 p-6 rounded-lg">
                   <img
                     className="h-40 rounded w-full object-cover object-center mb-6"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIg1dK-wyhOARCMe1wRdj3RqLfG44Yikn-kA&s"
+                    src="https://images.unsplash.com/photo-1593012672015-4fabc32c67aa?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Home Construction Loan"
                   />
                   <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
@@ -63,13 +67,14 @@ const Services = () => {
                 </div>
               </Link>
             </div>
+
             {/* Business Startup Loan Card */}
-            <div className="xl:w-1/4 md:w-1/2 p-4 hover:scale-105 duration-[1000ms]">
+            <div className="xl:w-1/4 md:w-1/2 p-4 hover:scale-105 duration-300">
               <Link to={"/loan-form"}>
                 <div className="bg-gray-100 p-6 rounded-lg">
                   <img
                     className="h-40 rounded w-full object-cover object-center mb-6"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZHdBw68SgltNMsn-1GpZRceQYIr0MfIAX6Q&s"
+                    src="https://images.unsplash.com/photo-1523726491678-bf852e717f6a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Business Startup Loan"
                   />
                   <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
@@ -85,13 +90,14 @@ const Services = () => {
                 </div>
               </Link>
             </div>
+
             {/* Education Loan Card */}
-            <div className="xl:w-1/4 md:w-1/2 p-4 hover:scale-105 duration-[1000ms]">
+            <div className="xl:w-1/4 md:w-1/2 p-4 hover:scale-105 duration-300">
               <Link to={"/loan-form"}>
                 <div className="bg-gray-100 p-6 rounded-lg">
                   <img
                     className="h-40 rounded w-full object-cover object-center mb-6"
-                    src="https://paytmblogcdn.paytm.com/wp-content/uploads/2023/08/Blog_Paytm_Education-Loan-Eligibility-Criteria-Documents-Required.jpg"
+                    src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Education Loan"
                   />
                   <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
@@ -107,12 +113,14 @@ const Services = () => {
               </Link>
             </div>
           </div>
+
+          {/* Apply Now Button */}
           <div className="flex gap-2 items-center justify-center mt-10">
             <PrimaryBtn
               routLink={"/loan-form"}
-              BtnText={"Apply"}
+              BtnText={"Apply Now"}
               additinalClasses={
-                " duration-300 hover:scale-105 hover:bg-green-700 bg-customGreen"
+                "duration-300 hover:scale-105 hover:bg-green-700 bg-customGreen"
               }
             />
           </div>

@@ -84,7 +84,7 @@ const DynamicLoanForm = () => {
 
   return (
     <div className="py-10 px-10 flex items-center justify-center bg-gray-100 w-full">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full px-10">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full px-10 mt-12">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
           Dynamic Loan Application
         </h2>

@@ -3,10 +3,10 @@ import PrimaryBtn from "../Components/PrimaryBtn";
 
 const LoanInformation = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-6 sm:px-12">
-      <div className="max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div className="min-h-screen bg-gray-50 py-12 px-6 sm:px-12 ">
+      <div className="max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
         <h1 className="text-4xl font-semibold text-center text-gray-800">
-          Loan Information
+          Loan Information <span className="text-green-700">Saylani Microfinance </span>
         </h1>
 
         <div className="mt-8 space-y-8">
@@ -112,7 +112,7 @@ const LoanInformation = () => {
                 routLink={"/loan-form"}
                 BtnText={"Apply"}
                 additinalClasses={
-                  " duration-300 hover:scale-105 hover:bg-green-700 bg-customGreen"
+                  " duration-300  hover:bg-green-600 bg-green-700"
                 }
               />
             </div>

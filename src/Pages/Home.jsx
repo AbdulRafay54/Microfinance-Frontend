@@ -1,5 +1,6 @@
 import React from "react";
 import bannerImage from "../../public/banner-image.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -25,10 +26,11 @@ const Home = () => {
               communities to assess how best to support underprivileged families
               in more than 63 areas of day-to-day lives.
             </p>
-
-            <button className="mt-8 px-6 py-3 text-white bg-green-700 hover:bg-green-600 rounded-lg shadow cursor-pointer w-full md:w-auto">
-              Apply Loan
-            </button>
+            <Link to="/loan-form">
+              <button className="mt-8 px-6 py-3 text-white bg-green-700 hover:bg-green-600 rounded-lg shadow cursor-pointer w-full md:w-auto">
+                Apply Now
+              </button>
+            </Link>
           </div>
         </div>
         <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center">
