@@ -2,48 +2,39 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="container mx-auto pt-20 px-4">
+    <div className="container mx-auto py-20 px-4">
       {/* Section Heading */}
       <section className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-800">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-snug">
           About <span className="text-green-600">Saylani Microfinance</span>
         </h1>
-        <p className="text-xl text-gray-600 mt-4">
-          Empowering underprivileged communities with accessible microfinance.
+        <p className="text-xl text-gray-600 mt-4 font-semibold">
+          Empowering <span className="text-green-700">underprivileged communities</span> with accessible microfinance.
         </p>
       </section>
 
       {/* About Content */}
-      <section className="flex flex-col md:flex-row gap-12">
+      <section className="flex flex-col md:flex-row items-center gap-12">
         {/* Left Column: Text Content */}
-        <div className="w-full md:w-1/2">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        <div className="w-full md:w-1/2 text-justify">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
             Our Mission
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 leading-relaxed">
             Saylani Microfinance is dedicated to transforming the lives of{" "}
-            <span className="font-bold">underprivileged communities</span> in
+            <span className="font-bold text-green-700">underprivileged communities</span> in
             Pakistan. Through accessible microfinance, we provide{" "}
-            <span className="font-bold">affordable loans</span> to help families
+            <span className="font-bold text-green-700">affordable loans</span> to help families
             start businesses, improve homes, and cover educational and medical
-            costs, aiming to reduce <span className="font-bold">poverty</span> and
-            promote <span className="font-bold">economic empowerment</span>.
+            costs, aiming to reduce <span className="font-bold text-green-700">poverty</span> and promote{" "}
+            <span className="font-bold text-green-700">economic empowerment</span>.
           </p>
-          <p className="mt-6 text-lg text-gray-600">
-            With over two decades of work, Saylani Welfare Trust has supported{" "}
-            <span className="font-bold">thousands of families</span>, fostering{" "}
-            <span className="font-bold">financial independence</span> and enabling
-            individuals to live with <span className="font-bold">dignity</span> and{" "}
-            <span className="font-bold">hope</span>. We focus on providing a
-            platform for self-sufficiency, which is transforming lives and
-            contributing to a more <span className="font-bold">equitable society</span>.
-          </p>
-          <p className="mt-6 text-lg text-gray-600">
-            Our vision extends beyond financial aid, creating a foundation where{" "}
-            <span className="font-bold">education</span>,{" "}
-            <span className="font-bold">healthcare</span>, and{" "}
-            <span className="font-bold">entrepreneurship</span> can thrive, ensuring a
-            brighter future for generations.
+          <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+            Our vision extends beyond financial aid, creating a foundation
+            where <span className="font-bold text-green-700">education</span>,{" "}
+            <span className="font-bold text-green-700">healthcare</span>, and{" "}
+            <span className="font-bold text-green-700">entrepreneurship</span> thrive, ensuring
+            a brighter future for generations.
           </p>
         </div>
 
@@ -52,80 +43,42 @@ const About = () => {
           <img
             src="https://res.cloudinary.com/saylani-welfare/image/upload/v1647252901/website-images/static/58.jpg"
             alt="Saylani Microfinance"
-            className="w-full rounded-lg shadow-md object-cover h-full"
+            className="w-full rounded-lg shadow-lg object-cover h-auto"
           />
         </div>
       </section>
 
       {/* Impact Section */}
-      <section className="mt-12">
-        <h2 className="text-3xl font-semibold text-gray-800 text-center mb-6">
-          More
+      <section className="mt-16">
+        <h2 className="text-3xl font-semibold text-gray-800 text-center mb-8">
+          Our Impact
         </h2>
-        <p className="text-lg text-gray-600 text-center mb-6">
+        <p className="text-lg text-gray-600 text-center leading-relaxed mb-8">
           Since 1999, Saylani Welfare Trust has been serving underprivileged
-          communities across <span className="font-bold">63 areas</span> in Pakistan
-          and beyond, providing crucial services to marginalized populations.
-        </p>
-        <p className="text-lg text-gray-600 text-center mb-6">
-          Founded by Hazrat Allama Maulana Muhammad Bashir Farooq, the Trust now
-          operates globally, with over <span className="font-bold">630 branches</span>{" "}
-          and serving more than <span className="font-bold">300,000 people</span> daily.
-        </p>
-        <p className="text-lg text-gray-600 text-center mb-6">
-          Our efforts span across various fields, including food, healthcare, education,
-          social welfare, and disaster relief, ensuring comprehensive support to those in need.
+          communities across <span className="font-bold text-green-700">63 areas</span> in
+          Pakistan and beyond, with over <span className="font-bold text-green-700">630 branches</span> supporting{" "}
+          <span className="font-bold text-green-700">300,000 people</span> daily.
         </p>
 
         {/* Impact Areas */}
-        <div className="flex flex-col md:flex-row justify-around gap-8">
-          <div className="text-center">
-            <p className="text-lg text-gray-600">
-              <span className="text-blue-600 text-2xl font-bold">★</span> Health
-              Department
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-lg text-gray-600">
-              <span className="text-blue-600 text-2xl font-bold">★</span> Saylani
-              Dastarkhuwan
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-lg text-gray-600">
-              <span className="text-blue-600 text-2xl font-bold">★</span> Saylani
-              Job Bank
-            </p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            "Health Department",
+            "Saylani Dastarkhuwan",
+            "Saylani Job Bank",
+            "Mother & Child Care Center",
+            "Saylani Housing Scheme",
+            "Kafalat Program",
+          ].map((area, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-center bg-gray-100 p-6 rounded-lg shadow-md"
+            >
+              <span className="text-blue-600 text-2xl font-bold mr-4">★</span>
+              <p className="text-lg text-gray-600 font-semibold">{area}</p>
+            </div>
+          ))}
         </div>
-
-        {/* Additional Areas */}
-        <div className="flex flex-col md:flex-row justify-around gap-8 mt-6 ml-[-34px]">
-          <div className="text-center">
-            <p className="text-lg text-gray-600">
-              <span className="text-blue-600 text-2xl font-bold">★</span> Mother &
-              Child Care Center
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-lg text-gray-600">
-              <span className="text-blue-600 text-2xl font-bold">★</span> Saylani
-              Housing Scheme
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-lg text-gray-600">
-              <span className="text-blue-600 text-2xl font-bold">★</span> Kafalat
-              Program
-            </p>
-          </div>
-        </div>
-
-        <p className="text-lg text-gray-600 text-center mt-6">
-          Saylani Welfare Trust continues to grow, reaching more people each day and
-          improving lives. Join us in this noble cause to make the world a better
-          place.
-        </p>
       </section>
 
       {/* Call to Action */}
