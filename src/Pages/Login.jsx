@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 const LoginScreen = () => {
   let navigate = useNavigate();
-    const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const [formData, setFormData] = useState({
     email: "",
@@ -17,31 +19,30 @@ const LoginScreen = () => {
 
   const handleSubmit = async (e) => {
     setLoading(true);
+    setError("");
+    setSuccess("");
     e.preventDefault();
     try {
-      const response = await fetch(
-        "",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Login successful:", data);
+        setSuccess("Login successful!");
         navigate("/");
       } else {
         const errorData = await response.json();
-        console.error("Login failed:", errorData);
-        setLoading(true);
+        setError(errorData.message || "Invalid email or password");
       }
     } catch (error) {
-      console.error("An error occurred:", error);
-      setLoading(true);
+      setError("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -52,12 +53,8 @@ const LoginScreen = () => {
           Login
         </h2>
         <form onSubmit={handleSubmit}>
-          {/* Email Input */}
           <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email Address
             </label>
             <input
@@ -71,12 +68,8 @@ const LoginScreen = () => {
             />
           </div>
 
-          {/* Password Input */}
           <div className="mb-4">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               Password
             </label>
             <input
@@ -90,18 +83,22 @@ const LoginScreen = () => {
             />
           </div>
 
-          {/* Submit Button */}
-          <div className="flex justify-center items-center">
+          {/* Error Message */}
+          {error && <p className="mt-4 text-red-500 text-center">{error}</p>}
+
+          {/* Success Message */}
+          {success && <p className="mt-4 text-green-500 text-center">{success}</p>}
+
+          <div className="flex justify-center items-center mt-4">
             <button
               type="submit"
               className="duration-300 hover:scale-105 hover:bg-green-700 bg-customGreen text-white px-6 py-2 rounded-lg"
             >
-               {loading ? "Login..." : "Login"}
+              {loading ? "Login..." : "Login"}
             </button>
           </div>
         </form>
 
-        {/* Additional Links */}
         <div className="mt-4 text-sm text-center text-gray-600">
           <p>
             Don't have an account?{" "}

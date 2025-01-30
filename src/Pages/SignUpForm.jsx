@@ -1,16 +1,20 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import PrimaryBtn from "../Components/PrimaryBtn";
 
 const SignUpForm = () => {
+  const navigate = useNavigate(); 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
+    cnic: "",
   });
 
-  const [loading, setLoading] = useState(false); 
-  const [error, setError] = useState(null); 
-  const [success, setSuccess] = useState(false); 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+  const [redirecting, setRedirecting] = useState(false); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,26 +29,32 @@ const SignUpForm = () => {
     setLoading(true);
     setError(null);
     setSuccess(false);
+    setRedirecting(false);
 
     try {
-      const response = await fetch(
-        "",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (!response.ok) {
-        throw new Error("Failed to register. Please try again.");
+        const errorData = await response.json();
+        // Show detailed error message if available
+        throw new Error(errorData.error || "Failed to register. Please try again.");
       }
 
       const data = await response.json();
       console.log("Registration Successful:", data);
       setSuccess(true);
+
+      setRedirecting(true);
+      setTimeout(() => {
+        navigate("/login"); 
+      }, 2000); 
+
     } catch (err) {
       console.error("Error during registration:", err);
       setError(err.message);
@@ -73,6 +83,23 @@ const SignUpForm = () => {
               id="name"
               name="name"
               value={formData.name}
+              onChange={handleChange}
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-customGreen focus:border-customGreen"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="cnic"
+              className="block text-sm font-medium text-gray-700"
+            >
+              CNIC
+            </label>
+            <input
+              type="text"
+              id="cnic"
+              name="cnic"
+              value={formData.cnic}
               onChange={handleChange}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-customGreen focus:border-customGreen"
               required
@@ -135,7 +162,14 @@ const SignUpForm = () => {
         {/* Success Message */}
         {success && (
           <p className="mt-4 text-green-500 text-center">
-            Registration successful!
+            Registration successful! Redirecting to login...
+          </p>
+        )}
+
+        {/* Redirecting Message */}
+        {redirecting && (
+          <p className="mt-4 text-yellow-500 text-center">
+            Redirecting to login in 2 seconds...
           </p>
         )}
       </div>
